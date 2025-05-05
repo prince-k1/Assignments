@@ -15,8 +15,11 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     const id = +req.params.id-1;
-    if(id > 2 || id < 0) res.send('Student not found');
-    
+    if(id > 2 || id < 0){
+        res.send('Student not found');
+        return;
+    } 
+
     res.send(`Students: ${students[id].name}`);
     
 })

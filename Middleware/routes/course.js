@@ -14,7 +14,10 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const id = +req.params.id-1;
     // console.log(id);
-    if(id > 1 || id < 0 ) res.send('course not found');
+    if(id > 1 || id < 0 ){
+        res.send('course not found');
+        return;
+    } 
 
     res.send(`Courses:${courses[id].name}, Description:${courses[id].description}`);
     
