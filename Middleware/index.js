@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 let port = 4000;
 
-
+app.use((req, res, next) => {
+    console.log(`${req.method} made to ${req.path}`);
+    next();
+})
 
 app.get('/products', (req, res) => {
     res.send('Here is the list of all products');
@@ -17,7 +20,7 @@ app.post('/categories', (req, res) => {
     res.send('A new catagory has been created');
 })
 
-app.get('/', (req, res) => {
+app.use('/', (req, res) => {
     res.end('<h1>404 Page is not found</h1>')
 })
 
