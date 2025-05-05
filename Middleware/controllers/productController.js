@@ -9,7 +9,9 @@ const getProductById = (req,res) => {
 }
 
 const postProduct = (req,res) => {
-    res.send('Adding a new user');
+    const data = req.body;
+    // console.log(data);
+    res.send({value: data.productName});
 };
 
 module.exports ={

@@ -7,6 +7,8 @@ const usersRouter  = require('./routes/users');
 const homeRouter = require('./routes/home');
 const cartRouter = require('./routes/cart');
 
+app.use(express.static('public'))// make a static folder 
+app.use(express.json()); // to read req.body
 
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
