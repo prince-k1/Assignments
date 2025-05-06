@@ -20,6 +20,11 @@ connection.connect((err) => {
         name VARCHAR(20),
         email VARCHAR(20)    
     )`;
+
+    const busesTable = `create table IF NOT EXISTS bus(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        busName VARCHAR(20)
+    )`
    
     connection.execute(userTable, (err) => {
         if(err){
@@ -28,6 +33,14 @@ connection.connect((err) => {
             return;
         }
         console.log("Table is created");
+    })
+    connection.execute(busesTable, (err) => {
+        if(err){
+            console.log(err);
+            connection.end();
+            return;
+        }
+        console.log("bus table is created");
     })
     
 })
