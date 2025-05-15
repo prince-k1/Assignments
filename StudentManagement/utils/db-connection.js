@@ -8,7 +8,7 @@ const sequelize = new Sequelize("studentdb", "root", "675859", {
 (async () => {
   try {
     await sequelize.authenticate();
-    console.log("connection is created");
+    console.log("connection created");
   } catch (err) {
     console.log(err);
   }
