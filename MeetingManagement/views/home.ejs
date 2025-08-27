@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meeting Management</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 1rem;
+      }
+      .first {
+        display: flex;
+        gap: 2rem;
+      }
+      .shedule {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .time {
+        border: 1px solid blue;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+      }
+      .green {
+        color: green;
+      }
+      form,
+      .second {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .sheduled {
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+        margin: 1rem;
+        flex-wrap: wrap;
+      }
+      .cards {
+        border: grey solid 1px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        max-width: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="first">
+        <div class="shedule">
+          <% slots.forEach((slot, index) => { %>
+          <div class="time">
+            <span><%= slot.time %></span>
+
+            <% if (slot.availableSeats > 0) { %>
+            <span class="green"><%= slot.availableSeats %> Available</span>
+            <% } else { %>
+            <span style="color: red">Full</span>
+
+            <% } %> <% if (slot.availableSeats > 0) { %>
+            <button onclick="bookSlot('<%= index %>')">Book</button>
+            <% } %>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <div class="second">
+        <h2>Scheduled Meetings</h2>
+        <div class="sheduled">
+          <% meetings.forEach(meeting => { %>
+          <div class="cards">
+            <span>
+              Hi! <%= meeting.name %> join the meeting at <%=
+              slots[meeting.slotIndex].time %> slot.
+            </span>
+            <button
+              onclick="cancelMeeting('<%= meeting.id %>', '<%= meeting.slotIndex %>') "
+            >
+              Cancel
+            </button>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
