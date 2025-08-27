@@ -1,30 +1,19 @@
 const express = require('express');
 const app = express();
 
-// Middleware to parse JSON bodies (for POST requests)
-app.use(express.json());
+// Dynamic route with route parameter :username
+app.get('/welcome/:username', (req, res) => {
+    // Extract route parameter
+    const username = req.params.username;
 
-// GET /products
-app.get('/products', (req, res) => {
-    res.send('Here is the list of all products.');
+    // Extract query parameter (e.g., role)
+    const role = req.query.role || 'Guest'; // default to 'Guest' if not provided
+
+    // Send personalized response
+    res.send(`Welcome ${username}, your role is ${role}`);
 });
 
-// POST /products
-app.post('/products', (req, res) => {
-    res.send('A new product has been added.');
-});
-
-// GET /categories
-app.get('/categories', (req, res) => {
-    res.send('Here is the list of all categories.');
-});
-
-// POST /categories
-app.post('/categories', (req, res) => {
-    res.send('A new category has been created.');
-});
-
-// Start the server on port 4000
-app.listen(4000, () => {
-    console.log('Server is running on port 4000');
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
