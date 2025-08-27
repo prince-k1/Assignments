@@ -5,6 +5,8 @@ const categoriesRouter = require('./routes/categories');
 const bookRouter = require('./routes/books');
 const studentRoutes = require('./routes/students');
 const courseRoutes = require('./routes/courses');
+const userRoutes = require('./routes/user');
+const cartRoutes = require('./routes/cart');
 
 
 app.use(express.json());
@@ -12,6 +14,8 @@ app.get('/', (req, res) => {
     res.send('Welcome to the API!');
 });
 
+app.use('/users', userRoutes);
+app.use('/cart', cartRoutes);
 app.use('/students', studentRoutes);
 app.use('/courses', courseRoutes);
 
