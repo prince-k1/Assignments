@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Products</title>
+    <title>Add Product</title>
 </head>
 <body>
-    <h1>Fetching All Products</h1>
-    <p>This page is served using <b>res.sendFile()</b>.</p>
-
-    <form action="/api/products" method="POST">
+    <h1>Add a Product</h1>
+    <form id="productForm">
         <label for="product">Product Name:</label>
         <input type="text" id="product" name="productName" required>
         <button type="submit">Add Product</button>
     </form>
+
+    <p id="response"></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
