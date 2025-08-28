@@ -6,5 +6,11 @@
 <body>
     <h1>Fetching All Products</h1>
     <p>This page is served using <b>res.sendFile()</b>.</p>
+
+    <form action="/api/products" method="POST">
+        <label for="product">Product Name:</label>
+        <input type="text" id="product" name="productName" required>
+        <button type="submit">Add Product</button>
+    </form>
 </body>
 </html>
