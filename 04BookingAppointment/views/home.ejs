@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Appointment</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="main">
+        <form action="/submited" method="post">
+            <div class="username">
+                <label for="name">username</label>
+                <input type="text" name="username">
+            </div>
+            <div class="email">
+                <label for="email">Email</label>
+                <input type="email" name="email">
+            </div>
+            <div class="phone">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone">
+            </div>
+            <button type="submit" id="subBtn">Submit</button>
+        </form>
+        <div class="list">
+            <% data.forEach((data) => { %>
+                <div class="listed">
+                    <p> <%= data.name %> - <%= data.email %> - <%= data.phone %> - <%= data.id %></p>
+                    <button class="delete" onclick="deleteUser('<%= data.id %>')">Delete</button>
+                    <button class="edit" onclick="editUser('<%= data.id %>')">Edit</button>
+                </div>
+            <% }) %>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

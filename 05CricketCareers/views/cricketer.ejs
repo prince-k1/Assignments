@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/crick.css">
+</head>
+<body>
+    
+    <div class="main">
+        <a href="/">Go Back</a>
+        <div class="first">
+            <div class="info">
+                <img src="<%= player.url %>" alt="">
+                <p class="name"> <%= player.name %></p>
+                <p class="dob"><%= player.dob %></p>
+            </div>
+            <div class="personal">
+                <h2>Personal Info</h2>
+                <p>No. of Matches : <%= player.matches %></p>
+                <p>Runs : <%= player.score %></p>
+                <p>Fifties : <%= player.fifties %></p>
+                <p>Century : <%= player.century %></p>
+                <p>Average : <%= player.average %></p>
+                <p>Wickets : <%= player.wickets %></p>
+            </div>
+        </div>
+        <div class="second">
+            <p><%= player.career %></p>
+        </div>
+    </div>
+</body>
+</html>

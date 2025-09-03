@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .input {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <a href="/">Go Back</a>
+    <form action="/edited" method="post">
+                <div class="input">
+                    <label for="name">Id:</label>
+                    <input type="text" name="id" value="<%= player.id %>" required readonly>
+                </div>
+
+                <div class="input">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" value="<%= player.name %>" required>
+                </div>
+                <div class="input">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="text" name="dob" value="<%= player.dob %>" required>
+                </div>
+                <div class="input">
+                    <label for="photo">Photo url:</label>
+                    <input type="text" name="url" value="<%= player.url %>" required>
+                </div>
+                <div class="input">
+                    <label for="birtPlace">Birth Place:</label>
+                    <input type="text" name="birthPlace" required value="<%= player.birthPlace %>">
+                </div>
+                <div class="input">
+                    <label for="career">Career:</label>
+                    <textarea name="career" required placeholder="<%= player.career %>"></textarea>
+                </div>
+                <div class="input">
+                    <label for="matches">Number of Matches:</label>
+                    <input type="number" name="matches" required value="<%= player.matches %>">
+                </div>
+                <div class="input">
+                    <label for="score">Score:</label>
+                    <input type="number" name="score" required value="<%= player.score %>">
+                </div>
+                <div class="input">
+                    <label for="fifties">Fifties:</label>
+                    <input type="number" name="fifties" required value="<%= player.fifties %>">
+                </div>
+                <div class="input">
+                    <label for="century">Century:</label>
+                    <input type="number" name="century" required value="<%= player.century %>">
+                </div>
+                <div class="input">
+                    <label for="wickets">Wickets:</label>
+                    <input type="number" name="wickets" required value="<%= player.wickets %>">
+                </div>
+                <div class="input">
+                    <label for="average">Average:</label>
+                    <input type="text" name="average" required value="<%= player.average %>">
+                </div>
+                <button type="submit">Change</button>
+            </form>
+</body>
+</html>

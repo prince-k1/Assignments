@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="first">
+            <h1>Player Information</h1>
+            <form action="/submited" method="post">
+                <div class="input">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="text" name="dob" required>
+                </div>
+                <div class="input">
+                    <label for="photo">Photo url:</label>
+                    <input type="text" name="url" required>
+                </div>
+                <div class="input">
+                    <label for="birtPlace">Birth Place:</label>
+                    <input type="text" name="birthPlace" required>
+                </div>
+                <div class="input">
+                    <label for="career">Career:</label>
+                    <textarea name="career"></textarea>
+                </div>
+                <div class="input">
+                    <label for="matches">Number of Matches:</label>
+                    <input type="number" name="matches" required>
+                </div>
+                <div class="input">
+                    <label for="score">Score:</label>
+                    <input type="number" name="score" required>
+                </div>
+                <div class="input">
+                    <label for="fifties">Fifties:</label>
+                    <input type="number" name="fifties" required>
+                </div>
+                <div class="input">
+                    <label for="century">Century:</label>
+                    <input type="number" name="century" required>
+                </div>
+                <div class="input">
+                    <label for="wickets">Wickets:</label>
+                    <input type="number" name="wickets" required>
+                </div>
+                <div class="input">
+                    <label for="average">Average:</label>
+                    <input type="text" name="average" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="second">
+            <h1>Players Info</h1>
+            <% table.forEach((val) => { %>
+                <div class="cards">
+                <p> <%= val.name %></p>
+                <div>
+                    <a onclick="loadPage('<%= val.id %>')" >Know More.</a>
+                    <a onclick="editPlayer('<%= val.id %>')">Edit </a>
+                </div>
+            </div>
+            <% }) %>
+            
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
